@@ -32,6 +32,7 @@ public class ProductService {
 		productRepository.saveAll(products);
 	}
 	
+	// find all products 
 	public List<Product> findAllProducts(){
 		return productRepository.findAll();
 	}
@@ -52,5 +53,20 @@ public class ProductService {
 		return products;
 
 	}
+	
+	/*
+	 * find products with pagination
+	 * pageSize -> items per page
+	 * offSet -> page number
+	 * field -> sort by
+	 */
+	public Page<Product> findProductsWithPaginationAndSorting(int offSet, int pageSize, String field) {
+		Page<Product> products = productRepository.findAll(PageRequest.of(offSet, pageSize).withSort(Sort.by(field)));
+		
+		return products;
+
+	}
+	
+	
 
 }
