@@ -1,6 +1,5 @@
 package com.edgar.jpa.models;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -41,6 +40,6 @@ public class PassengerInfo {
 	
 	private LocalTime arriveTime;
 	
-	private BigDecimal fare;
+	private Double fare;
 
 }

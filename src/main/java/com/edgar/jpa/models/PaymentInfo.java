@@ -1,14 +1,12 @@
 package com.edgar.jpa.models;
 
-import java.math.BigDecimal;
+import java.util.UUID;
 
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UuidGenerator;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,19 +20,18 @@ import lombok.Setter;
 @NoArgsConstructor
 @Table(name = "PAYMENT_INFO")
 public class PaymentInfo {
-	
+
 	@Id
-	@GeneratedValue(generator = "uuid2")
-	@GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-	private String paymentId;
-	
+	@GeneratedValue
+	@UuidGenerator
+	private UUID paymentId;
+
 	private String accountNo;
-	
-	private BigDecimal amount;
-	
+
+	private Double amount;
+
 	private String cardType;
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	private PassengerInfo passengerId;
+
+	private Long passengerId;
 
 }
